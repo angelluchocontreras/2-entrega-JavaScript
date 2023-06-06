@@ -7,7 +7,7 @@ class Alumno {
 
 const alumnos = [
   new Alumno("Juan", 8),
-  new Alumno("Maria", 9),
+  new Alumno("María", 9),
   new Alumno("Pedro", 7),
   new Alumno("Angel", 5),
   new Alumno("Luis", 4),
@@ -18,12 +18,12 @@ const alumnos = [
   new Alumno("Sofia", 2),
   new Alumno("Candela", 10),
   new Alumno("Agustina", 10),
-  new Alumno("Leonel", 9),
-  new Alumno("Joaquin", 6),
+  new Alumno("leonel", 10),
+  new Alumno("joaquin", 6),
   new Alumno("Katerin", 5),
 ];
 
-function filtrarAlumnosPorNorta(notaMinima) {
+function filtrarAlumnosPorNota(notaMinima) {
   return alumnos.filter((alumno) => alumno.nota >= notaMinima);
 }
 
@@ -32,7 +32,7 @@ function buscarAlumnoPorNombre(nombre) {
 }
 
 const notaBuscada = prompt(
-  "Ingrese una nota del 1  al 10 para ver los alumnos que la tienen"
+  "Ingrese una nota (1 a 10) para ver los alumnos que la tienen:"
 );
 
 if (notaBuscada) {
@@ -43,7 +43,7 @@ if (notaBuscada) {
   if (alumnosConNotaBuscada.length > 0) {
     alert("Los siguientes alumnos tienen una nota de " + notaBuscada + ":");
     alumnosConNotaBuscada.forEach((alumno) => {
-      alert("-") + alumno.nombre + ": " + alumno.nota;
+      alert("- " + alumno.nombre + ": " + alumno.nota);
     });
   } else {
     alert("No hay alumnos con una nota de " + notaBuscada + ".");
@@ -51,14 +51,14 @@ if (notaBuscada) {
 }
 
 const mostrarAprobados = confirm(
-  "¿Quieres saber quienes aprobaron?(Cancelar mostrara solo los desaprobados)"
+  "¿Quieres saber quiénes aprobaron? (Cancelar mostrará solo los desaprobados)"
 );
 
 if (mostrarAprobados) {
-  const notaAprobacion = 7; //--------aca es la nota minima para aproba---------
-  const alumnosAprobados = filtrarAlumnosPorNorta(notaAprobacion);
+  const notaAprobacion = 7; // Nota mínima para aprobar
+  const alumnosAprobados = filtrarAlumnosPorNota(notaAprobacion);
   if (alumnosAprobados.length > 0) {
-    alert("Los siguientes alumnos son los que aprobaron: ");
+    alert("Los siguientes alumnos han aprobado:");
     alumnosAprobados.forEach((alumno) => {
       alert("- " + alumno.nombre + ": " + alumno.nota);
     });
@@ -66,21 +66,21 @@ if (mostrarAprobados) {
     alert("No hay alumnos que hayan aprobado.");
   }
 } else {
-  const notaReprobacion = 7; //--------------Nota maxima para desaprobar--------
+  const notaReprobacion = 7; // Nota máxima para desaprobar
   const alumnosDesaprobados = alumnos.filter(
     (alumno) => alumno.nota < notaReprobacion
   );
   if (alumnosDesaprobados.length > 0) {
-    alert("Los siguientes alumnos desaprobaron: ");
+    alert("Los siguientes alumnos han desaprobado:");
     alumnosDesaprobados.forEach((alumno) => {
-      alert("- " + alumno.nombre + ": " + alumnonota);
+      alert("- " + alumno.nombre + ": " + alumno.nota);
     });
   } else {
-    alert("No hay alumnos que hayan desaprobado");
+    alert("No hay alumnos que hayan desaprobado.");
   }
 }
 const deseaNotasAltas = confirm(
-  "¿Deseas ver las 5 notas mas altas?(Si pone cancelar apareceran las 5 notas mas bajas"
+  "¿Deseas ver las 5 notas más altas?(Si pone cancelar apareceran las 5 notas mas bajas)"
 );
 
 let mensaje;
